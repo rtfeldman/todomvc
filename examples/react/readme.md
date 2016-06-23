@@ -1,37 +1,31 @@
-# React TodoMVC Example
+# React TodoMVC for Benchmarking
 
-> React is a JavaScript library for creating user interfaces. Its core principles are declarative code, efficiency, and flexibility. Simply specify what your component looks like and React will keep it up-to-date when the underlying data changes.
+This is an update of the React TodoMVC example to use React 15.1 and
+precompiled/minified JSX instead of the slow JSXTransformer. The idea is that
+this is a reasonable approximation of the performance characteristics of modern
+production React code.
 
-> _[React - facebook.github.io/react](http://facebook.github.io/react)_
+This is not a perfect reflection of React best practices, because there is no
+such thing. If you ask five professional React users what current React best
+practices are, you'll get five different answers—each of which will benchmark
+differently. React Router, Immutable.js, Redux (with or without sagas), Ramda,
+ES2015 (with various Babel plugins), Webpack...the list never ends.
+
+Rather than wading into that combinatorial explosion, this example is leaving
+the original React TodoMVC implementation's supporting stack alone, and only
+performing the following upgrades:
+
+* Upgrade to React 15.1
+* Move everything into one JSX file and precompile it with Babel
+* Minify with uglify
+
+If you're curious how it benchmarks with your particular stack, please fork
+this repo and find out!
+
+# Building
+
+1. `npm install`
+2. `npm run make`
+3. Open a local server (e.g. with `npm install -g http-server`) and open index.html
 
 
-## Learning React
-
-The [React getting started documentation](http://facebook.github.io/react/docs/getting-started.html) is a great way to get started.
-
-Here are some links you may find helpful:
-
-* [Documentation](http://facebook.github.io/react/docs/getting-started.html)
-* [API Reference](http://facebook.github.io/react/docs/reference.html)
-* [Blog](http://facebook.github.io/react/blog/)
-* [React on GitHub](https://github.com/facebook/react)
-* [Support](http://facebook.github.io/react/support.html)
-
-Articles and guides from the community:
-
-* [How is Facebook's React JavaScript library](http://www.quora.com/React-JS-Library/How-is-Facebooks-React-JavaScript-library)
-* [React: Under the hood](http://www.quora.com/Pete-Hunt/Posts/React-Under-the-Hood)
-
-Get help from other React users:
-
-* [React on StackOverflow](http://stackoverflow.com/questions/tagged/reactjs)
-* [Discussion Forum](https://discuss.reactjs.org/)
-
-_If you have other helpful links to share, or find any of the links above no longer work, please [let us know](https://github.com/tastejs/todomvc/issues)._
-
-
-## Running
-
-The app is built with [JSX](http://facebook.github.io/react/docs/jsx-in-depth.html) and compiled at runtime for a lighter and more fun code reading experience. As stated in the link, JSX is not mandatory.
-
-To run the app, spin up an HTTP server (e.g. `python -m SimpleHTTPServer`) and visit http://localhost/.../myexample/.
